@@ -1,0 +1,104 @@
+{
+    "questions": [
+      {
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "answer": "Paris"
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "answer": "Mars"
+      },
+      {
+        "question": "What is the largest mammal in the world?",
+        "options": ["Elephant", "Blue Whale", "Giraffe", "Orca"],
+        "answer": "Blue Whale"
+      },
+      {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "options": ["Charles Dickens", "Mark Twain", "William Shakespeare", "Jane Austen"],
+        "answer": "William Shakespeare"
+      },
+      {
+        "question": "What is the chemical symbol for water?",
+        "options": ["H2O", "O2", "CO2", "NaCl"],
+        "answer": "H2O"
+      },
+      {
+        "question": "Which gas do plants absorb from the atmosphere?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "answer": "Carbon Dioxide"
+      },
+      {
+        "question": "What is the smallest prime number?",
+        "options": ["0", "1", "2", "3"],
+        "answer": "2"
+      },
+      {
+        "question": "In which year did the Titanic sink?",
+        "options": ["1912", "1905", "1898", "1920"],
+        "answer": "1912"
+      },
+      {
+        "question": "What is the main ingredient in guacamole?",
+        "options": ["Tomato", "Avocado", "Onion", "Pepper"],
+        "answer": "Avocado"
+      },
+      {
+        "question": "Which element has the atomic number 1?",
+        "options": ["Helium", "Hydrogen", "Oxygen", "Lithium"],
+        "answer": "Hydrogen"
+      },
+      {
+        "question": "Who painted the Mona Lisa?",
+        "options": ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        "answer": "Leonardo da Vinci"
+      },
+      {
+        "question": "What is the largest organ in the human body?",
+        "options": ["Heart", "Liver", "Skin", "Lungs"],
+        "answer": "Skin"
+      },
+      {
+        "question": "Which country is known as the Land of the Rising Sun?",
+        "options": ["China", "Japan", "Thailand", "Korea"],
+        "answer": "Japan"
+      },
+      {
+        "question": "What is the hardest natural substance on Earth?",
+        "options": ["Gold", "Iron", "Diamond", "Quartz"],
+        "answer": "Diamond"
+      },
+      {
+        "question": "Which ocean is the largest?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "answer": "Pacific Ocean"
+      },
+      {
+        "question": "What is the currency of the United Kingdom?",
+        "options": ["Dollar", "Euro", "Pound Sterling", "Yen"],
+        "answer": "Pound Sterling"
+      },
+      {
+        "question": "Which instrument is used to measure atmospheric pressure?",
+        "options": ["Thermometer", "Barometer", "Hygrometer", "Anemometer"],
+        "answer": "Barometer"
+      },
+      {
+        "question": "What is the main language spoken in Brazil?",
+        "options": ["Spanish", "Portuguese", "English", "French"],
+        "answer": "Portuguese"
+      },
+      {
+        "question": "Which planet is closest to the sun?",
+        "options": ["Venus", "Earth", "Mercury", "Mars"],
+        "answer": "Mercury"
+      },
+      {
+        "question": "What is the boiling point of water?",
+        "options": ["50°C", "100°C", "150°C", "200°C"],
+        "answer": "100°C"
+      }
+    ]
+  }
