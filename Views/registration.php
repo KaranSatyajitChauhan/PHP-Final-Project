@@ -21,9 +21,8 @@
             });
         }
     </script>
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="../Styles/registration.css">
+    <link rel="stylesheet" href="../Styles/common.css">
 </head>
 <body>
     <div class="container">
