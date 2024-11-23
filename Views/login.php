@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../Styles/login.css">
+
 </head>
 <body>
     <div class="container">
@@ -24,8 +25,10 @@
         </form>
 
         <div class="link">
+
             <p>Don't have an account? <a href="registration.php">Create one here</a>.
             <br>Forgot the Password <a href="resetPassword.php">Reset Now</a>.</p>
+
         </div>
     </div>
 </body>

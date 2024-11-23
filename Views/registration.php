@@ -21,6 +21,7 @@
         }
     </script>
     <link rel="stylesheet" href="../Styles/registration.css">
+
 </head>
 <body>
     <div class="container">
