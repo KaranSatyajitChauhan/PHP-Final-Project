@@ -51,5 +51,8 @@ class DataBase {
 
         return $result;
     }
+    public function updateUserData(){
+        
+    }
 }
 ?>
