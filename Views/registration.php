@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -19,109 +20,85 @@
             });
         }
     </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+    <link rel="stylesheet" href="../Styles/registration.css">
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            max-width: 400px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            width: 80%;
-            padding: 10px;
-            margin-left: 4px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #5cb85c;
-            color: white;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #4cae4c;
-        }
-
-        .error {
-            color: red;
-            font-size: 12px;
-        }
-
-        .link {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .link a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
-    <h1>Create an Account</h1>
-    <form action="process_registration.php" method="post">
-        <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" id="firstName" onkeyup="validateField(this)">
-        <span id="firstNameError" class="error"></span>
+    <div class="container">
+        <h1>Create an Account</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" id="firstName" onkeyup="validateField(this)" required>
+                <span id="firstNameError" class="error"></span>
+            </div>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" id="lastName" onkeyup="validateField(this)">
-        <span id="lastNameError" class="error"></span>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" id="lastName" onkeyup="validateField(this)" required>
+                <span id="lastNameError" class="error"></span>
+            </div>
 
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" onkeyup="validateField(this)">
-        <span id="usernameError" class="error"></span>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" onkeyup="validateField(this)" required>
+                <span id="usernameError" class="error"></span>
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" onkeyup="validateField(this)">
-        <span id="passwordError" class="error"></span>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" onkeyup="validateField(this)" required>
+                <span id="passwordError" class="error"></span>
+            </div>
 
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" name="confirmPassword" id="confirmPassword" onkeyup="validateField(this)">
-        <span id="confirmPasswordError" class="error"></span>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" onkeyup="validateField(this)" required>
+                <span id="confirmPasswordError" class="error"></span>
+            </div>
 
-        <button type="submit">Register</button>
-        
-    </form>
+            <button type="submit" name="submit">Register</button>
+        </form>
 
-    <div class="link">
-        <p>Already have an account? <a href="login.php">Sign in here</a>.</p>
+        <div class="link">
+            <p>Already have an account? <a href="login.php">Sign in here</a>.</p>
+        </div>
     </div>
 </body>
+
+<?php
+include "../Utilities/Databaseconnectivity.php";
+
+if (isset($_POST['submit'])) {
+    $firstName = trim($_POST['firstName']);
+    $lastName = trim($_POST['lastName']);
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $confirmPassword = trim($_POST['confirmPassword']);
+
+    if ($password === $confirmPassword) {
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Secure password hashing
+        
+        $db = new DataBase();
+        if ($db->createConnection()) {
+            $userExists = $db->verifyUserExist($username);
+
+            if (!$userExists) {
+                $result = $db->registerUser($firstName, $lastName, $username, $hashedPassword);
+
+                if ($result) {
+                    $hashedPasswordResult = password_verify($hashedPassword, $password);
+                    echo "<script>alert('$hashedPasswordResult Registration  successful $hashedPassword!');</script>";
+                } else {
+                    echo "<script>alert('Error during registration. Try again.');</script>";
+                }
+            } else {
+                echo "<script>alert('Username already exists. Please choose a different one.');</script>";
+            }
+        }
+    } else {
+        echo "<script>alert('Passwords do not match!');</script>";
+    }
+}
+?>
 </html>
