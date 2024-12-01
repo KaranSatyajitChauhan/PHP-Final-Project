@@ -24,6 +24,8 @@
 // }
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +36,21 @@
 
 </head>
 <body>
+ <!-- Dark Navigation Bar -->
+ <div class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">GameName</a>
+            <div class="navbar-links">
+                <a href="#">Home</a>
+                <a href="#">Level 1</a>
+                <a href="#">Level 2</a>
+                <a href="#">Leaderboard</a>
+                <a href="#" onclick="window.location.href='../Utilities/logout.php'">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Level Content -->
     <div class="container">
         <h1>Level 1: Order 6 Letters</h1>
         <form action="game_level1.php" method="post">
@@ -50,4 +67,35 @@
         </div>
     </div>
 </body>
+
+
+<?php
+// Array ( [0] => fName [1] => lName [2] => userName [3] => registrationTime [4] => password [5] => registrationOrder )
+session_start();
+if (isset($_SESSION['username'])) {
+    // {$_SESSION[userData]}
+    $data = $_SESSION['userData'];
+    echo "<script>alert('{$data['fName']} {$data['lName']}, Wellcome to the Quiz. ');</script>";
+} else {
+    echo "<script>alert('Please do the login first');</script>";
+    header("Location: login.php");
+}
+?>
+
+<?php
+// Path to your JSON file
+$jsonFile = '../Resources/questions.json';
+
+// Read the JSON file content
+$jsonData = file_get_contents($jsonFile);
+
+// Decode the JSON data to a PHP associative array
+$dataArray = json_decode($jsonData, true);
+$keyData = $dataArray['questions'];
+// Print the decoded data
+// echo '<pre>';
+// print_r($keyData);
+// echo '</pre>';
+?>
+
 </html>

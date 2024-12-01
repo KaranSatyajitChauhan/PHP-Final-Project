@@ -55,7 +55,7 @@ if (isset($_POST['submit'])){
     $password = trim($_POST['password']);
     $confirmPassword = trim($_POST['confirmPassword']);
     if ($password === $confirmPassword){
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT)
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $db = new DataBase();
         if ($db->createConnection()){
