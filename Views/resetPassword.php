@@ -63,7 +63,15 @@ if (isset($_POST['submit'])){
 
             if ($userExists>0){
                 $userData = $db->fetchUserData($username);
-                echo "<script>alert('{$userData['fName']} is  registered');</script>";
+
+                if($username == $userData['userName'] && $firstName = $userData['fName'] && $lastName==$userData['lName']){
+                    $db->resetPassword($username,$hashedPassword);
+                    echo "<script>alert('Reset Password for {$username} successefull');</script>";
+    header("Location: login.php");
+                }else{
+                    echo "<script>alert('Reset Password for {$username} unsuccessefull, FirstName, LastName must be the same');</script>";
+                }
+
             }
             else{
                 echo "<script>alert('$username is not registered first you have to register.');</script>";
