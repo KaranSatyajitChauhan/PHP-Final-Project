@@ -1,14 +1,59 @@
+/* Body Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
     min-height: 100vh;
 }
 
+/* Dark Navigation Bar Styles */
+.navbar {
+    background-color: #333; /* Dark Gray */
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar a {
+    color: #fff; /* White Text */
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #555; /* Lighter Gray on hover */
+    border-radius: 5px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Responsive Navigation Links */
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Game Container Styles */
 .container {
     width: 100%;
     max-width: 500px;
@@ -17,6 +62,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-top: 70px; /* Space for sticky navbar */
 }
 
 h1 {
@@ -25,6 +71,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Input and Button Styles */
 input[type="text"] {
     width: 100%;
     padding: 12px;
@@ -51,6 +98,7 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Game Result Styling */
 .game-result {
     margin-top: 20px;
     font-size: 18px;

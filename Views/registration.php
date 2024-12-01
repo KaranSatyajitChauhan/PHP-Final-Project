@@ -21,7 +21,6 @@
         }
     </script>
     <link rel="stylesheet" href="../Styles/registration.css">
-
 </head>
 <body>
     <div class="container">
@@ -76,19 +75,23 @@ if (isset($_POST['submit'])) {
     $password = trim($_POST['password']);
     $confirmPassword = trim($_POST['confirmPassword']);
 
+    // Check if password and confirm password match
     if ($password === $confirmPassword) {
+        // Hash the password before storing it in the database
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Secure password hashing
         
         $db = new DataBase();
         if ($db->createConnection()) {
+            // Check if username already exists
             $userExists = $db->verifyUserExist($username);
 
             if (!$userExists) {
+                // Register the user
                 $result = $db->registerUser($firstName, $lastName, $username, $hashedPassword);
 
                 if ($result) {
-                    $hashedPasswordResult = password_verify($hashedPassword, $password);
-                    echo "<script>alert('$hashedPasswordResult Registration  successful $hashedPassword!');</script>";
+                    echo "<script>alert('Registration successful!');</script>";
+                    header("Location: login.php");
                 } else {
                     echo "<script>alert('Error during registration. Try again.');</script>";
                 }
