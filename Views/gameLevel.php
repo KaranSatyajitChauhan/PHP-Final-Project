@@ -51,7 +51,7 @@ $data = $_SESSION['userData'];
         $questions = $data['questions'];  // Access the 'questions' array
 
         // Set the group size (adjustable to 2, 4, 6, or 8)
-        $group_size = 4;  // Example: change this to 2, 6, or 8 for different group sizes
+        $group_size = 5 ;  // Example: change this to 2, 6, or 8 for different group sizes
 
         // Split questions into groups of $group_size
         $grouped_questions = array_chunk($questions, $group_size);
@@ -84,9 +84,7 @@ $data = $_SESSION['userData'];
 
 <!-- Show game result -->
 <div class="game-result">
-    <!-- Example of win/lose message -->
     <p class="win">You win!</p>
-    <!-- <p class="lose">Game Over! Try Again.</p> -->
 </div>
 
 </body>
