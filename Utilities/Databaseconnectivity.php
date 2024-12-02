@@ -51,10 +51,9 @@ class DataBase {
 
         return $result;
     }
-    public function resetPassword( $username, $hashedPassword){
-
+   
+public function resetPassword( $username, $hashedPassword){
   $stmt = $this->conn->prepare("UPDATE player SET password = ? WHERE username = ?");
-    
   $stmt->bind_param("ss", $hashedPassword, $username); 
   $stmt->execute();
   
