@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS player(
     lName VARCHAR(50) NOT NULL, 
     userName VARCHAR(20) NOT NULL UNIQUE,
     registrationTime DATETIME NOT NULL,
-    id VARCHAR(200) GENERATED ALWAYS AS (CONCAT(UPPER(LEFT(fName,2)), UPPER(LEFT(lName,2)), UPPER(LEFT(userName,3)), CAST(registrationTime AS SIGNED))),
+    password VARCHAR(30) NOT NULL,
     registrationOrder INTEGER AUTO_INCREMENT,
     PRIMARY KEY (registrationOrder)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;

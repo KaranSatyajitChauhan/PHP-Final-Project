@@ -3,7 +3,7 @@ class DataBase {
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "gamedatabase";
+    private $dbname = "quizgame";
     private $conn;
 
     public function __construct() {
@@ -43,16 +43,23 @@ class DataBase {
 
 
     public function registerUser($firstName, $lastName, $username, $hashedPassword) {
-        $stmt = $this->conn->prepare("INSERT INTO player (fName, lName, userName) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $firstName, $lastName, $username,);
+        $stmt = $this->conn->prepare("INSERT INTO player (fName, lName, userName, password) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $firstName, $lastName, $username,$hashedPassword);
 
         $result = $stmt->execute();
         $stmt->close();
 
         return $result;
     }
-    public function updateUserData(){
-        
+    public function resetPassword( $username, $hashedPassword){
+
+  $stmt = $this->conn->prepare("UPDATE player SET password = ? WHERE username = ?");
+    
+  $stmt->bind_param("ss", $hashedPassword, $username); 
+  $stmt->execute();
+  
+  $stmt->close();
+
     }
 }
 ?>
